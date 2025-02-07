@@ -22,6 +22,9 @@ function preload() {
     this.load.image('Background', 'assets/bg_azul-claro.png'); //Da load na imagem
     this.load.image('Tartaruga', 'assets/tartaruga.png'); 
     this.load.image('Logo', 'assets/logo-inteli_azul.png'); 
+    this.load.image('alga', 'assets/alga.png'); 
+    
+
 }
 
 // Função de criação
@@ -30,6 +33,14 @@ function create() {
     personagem = this.add.image(400, 300, 'Tartaruga').setOrigin(0.5, 0.5).setScale(0.8); //Guardou "Tartaruga" na variável Personagem
     this.add.image(400, 525, 'Logo').setScale(0.5);
 
+    this.add.particles(0, 0, 'alga', {
+        x: { random: [ 80, 720 ] },
+        lifespan: 2500,
+        gravityY: 180,//Gravidade aplicada no sprite
+        frequency: 80,
+        scale: { min: 0.1, max: 0.2 },//Intervalo de escala dos sprites de alga
+        blendMode: 'MULTIPLEX'//Modo de mesclagem de imagem
+    })
     //Transformação de variável (Deslocado)
     //personagem.setFlip(true, false);
     
@@ -42,8 +53,6 @@ function update() {
     personagem.x = this.input.x;
     personagem.y = this.input.y;
 
-    
-
     if(this.input.x > posicaoxAnterior){
         personagem.setFlip(true, false);//Imagem direita 
     }
@@ -52,4 +61,5 @@ function update() {
     }
 
     posicaoxAnterior = this.input.x;
+
 }
