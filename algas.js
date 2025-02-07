@@ -13,7 +13,7 @@ class Example extends Phaser.Scene
         this.add.image(400, 300, 'bg');
 
         //  Picks a random value between the first and second array elements
-        this.add.particles(0, 0, 'slime', {
+        this.add.particles(0, 0, 'alga', {
             x: { random: [ 80, 720 ] },
             lifespan: 2500,
             gravityY: 200,
